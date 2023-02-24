@@ -1,0 +1,9 @@
+<form (ngSubmit)="buscar()" autocomplete="off">
+  <!-- se importa formsModule para hacer uso del ngModel y crear un puente entre el html y ts -->
+  <input type="text"
+         name="termino"
+         class="form-control"
+         [(ngModel)]="termino"
+         (input)="teclaPresionada( $event )"
+         placeholder="Buscar país...">
+</form>
