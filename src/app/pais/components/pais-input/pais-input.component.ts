@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, OnInit} from '@angular/core';
-import { Subject } from 'rxjs';
+import { debounceTime, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-pais-input',
@@ -14,21 +14,31 @@ export class PaisInputComponent implements OnInit{
 
   termino: string = '';
 
+  // obserbable es como una promesa, en lugar de .then es .subscribe
   // el ngOnInit se dispara una única vez cuando un componente es creado
   ngOnInit() {
-    this.debouncer.subscribe( valor => {
-      console.log('debouncer: ', valor);
+
+    this.debouncer
+      .pipe(debounceTime(300))
+      .subscribe( valor => {
+        // console.log('debouncer: ', valor);
+        this.onDebounce.emit( valor )
     })
+
   }
 
   buscar() {
+
     this.onEnter.emit( this. termino );
+
   }
 
   teclaPresionada( event: any) {
+
     const valor = event.target.value;
-    console.log(valor);
-    console.log(this.termino);
+
+    // console.log(valor);
+    // console.log(this.termino);
 
     this.debouncer.next( this.termino );
 
