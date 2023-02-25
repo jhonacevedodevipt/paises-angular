@@ -19,5 +19,11 @@ export class PaisService {
       // .pipe(
       //   catchError( err => of([]) )
       // )
+
   }
+  https://restcountries.com/v2/callingcode/{callingcode}
+
+  // buscarCapital(): Observable<Country[]> {
+  //   return 
+  // }
 }
