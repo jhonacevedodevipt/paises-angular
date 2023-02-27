@@ -10,7 +10,7 @@ import { SharedModule } from './shared/shared.module';
   declarations: [
     AppComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, PaisModule, SharedModule, HttpClientModule], // importar modulos
+  imports: [BrowserModule, AppRoutingModule, PaisModule, HttpClientModule, SharedModule ], // importar modulos
   bootstrap: [AppComponent],
 })
 export class AppModule {}
